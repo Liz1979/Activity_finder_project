@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get 'activity_finder/index'
 
+  resources :activity_types
   resources :users
 
   root 'activity_finder#index'
