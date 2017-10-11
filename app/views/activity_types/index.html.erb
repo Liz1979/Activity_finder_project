@@ -1,0 +1,18 @@
+<% provide(:title, "Index") %>
+
+<table align = center border = 1>
+<tr>
+  <th>Activity type</th>
+</tr>
+  <% @activity_types.each do |activity| %>
+    <tr> 
+         <td><%= activity.name %></td>
+         <td><%= link_to 'Show', activity %></td> 
+         <td><%= link_to 'Edit', edit_activity_type_path(activity) %></td>
+         <td><%= link_to 'Delete', activity, method: :delete, data: {confirm: "Are you sure?"} %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p align = center><%= link_to 'Create new activity', new_activity_type_path %></p>
+
