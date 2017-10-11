@@ -9,8 +9,8 @@ RSpec.describe PagesController, type: :controller do
     end
 
     it "checks the title is correct" do
-    get :home
-    expect(:title).to be_eq("Home | activity finder")
+      get :home
+      expect(:title).to be_eq("Home | activity finder")
     end
   end
 
@@ -18,8 +18,12 @@ RSpec.describe PagesController, type: :controller do
     it "returns http success" do
       get :help
       expect(response).to have_http_status(:success)
+    end    
+    
+    it "returns http success" do
+      get :help
+      expect(:title).to be_eq()
 
-    end
   end
 
 end

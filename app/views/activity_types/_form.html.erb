@@ -1,0 +1,18 @@
+<%= form_with(model: @activity_type, local: true) do |form| %>
+  <% if @activity_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@activity_type.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @activity_type.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% end %>
+
+<%= form_for @activity_type do |f| %>
+Name: <%= f.text_field :name %>
+<%= f.submit %>
+<% end %>
