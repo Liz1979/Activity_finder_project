@@ -3,13 +3,13 @@ require 'rails_helper'
 RSpec.describe AttractionsController, type: :controller do
   render_views
   
-  let(:valid_attributes) {{name: "bar", longitude: -23.8974, latitude: 45.7352 speciality: "bob"}}
+  let(:valid_attributes) {{name: "bar", longitude: -23.8974, latitude: 45.7352, speciality: "bob"}}
   
-  let(:invalid_attributes) {{name: nil, longitude: -23.8974, latitude: 45.7352 speciality: "bob"}}
+  let(:invalid_attributes) {{name: nil, longitude: -23.8974, latitude: 45.7352, speciality: "bob"}}
   
-  let!(:changeme_activity) {ActivityType.create(name: "changeme", longitude: -23.8974, latitude: 45.7352 speciality: "bob") }
+  let!(:changeme_activity) {Attraction.create(name: "changeme", longitude: -23.8974, latitude: 45.7352, speciality: "bob") }
   
-  let!(:deleteme_activity) {ActivityType.create(name: "changeme", longitude: -23.8974, latitude: 45.7352 speciality: "bob") }
+  let!(:deleteme_activity) {Attraction.create(name: "changeme", longitude: -23.8974, latitude: 45.7352, speciality: "bob") }
   
   
     describe "GET #index" do
@@ -36,7 +36,7 @@ RSpec.describe AttractionsController, type: :controller do
       it "checks the title is correct" do
         get :show, params: {id: changeme_activity.id}
   
-        expect(response.body).to include("<title>Show an activity</title>")
+        expect(response.body).to include("<title>Show an attraction</title>")
       end
     end 
   
@@ -50,7 +50,7 @@ RSpec.describe AttractionsController, type: :controller do
       it "checks the title is correct" do
         get :edit, params: {id: changeme_activity.id}
   
-        expect(response.body).to include("<title>Edit an activity</title>")
+        expect(response.body).to include("<title>Edit an attraction</title>")
       end
     end 
   
@@ -64,35 +64,35 @@ RSpec.describe AttractionsController, type: :controller do
       it "checks the title is correct" do
         get :new
   
-        expect(response.body).to include("<title>Create an activity</title>")
+        expect(response.body).to include("<title>Create an attraction</title>")
       end
     end 
   
     describe "POST #create" do
       it "returns a successful count" do
-        before_create = ActivityType.count
-        post :create, params: {activity_type: valid_attributes}
+        before_create = Attraction.count
+        post :create, params: {attraction: valid_attributes}
         
-        expect(ActivityType.count).to eq(before_create +1)
+        expect(Attraction.count).to eq(before_create +1)
       end
   
       it "returns an unsuccessful count" do
-        before_create = ActivityType.count
-        post :create, params: {activity_type: invalid_attributes}
+        before_create = Attraction.count
+        post :create, params: {attraction: invalid_attributes}
   
-        expect(ActivityType.count).to eq(before_create)
+        expect(Attraction.count).to eq(before_create)
       end
     end 
   
     describe "UPDATE #create" do
       it "returns a success" do
-        patch :update, params: {id: changeme_activity.id, activity_type: valid_attributes}
+        patch :update, params: {id: changeme_activity.id, attraction: valid_attributes}
         changeme_activity.reload
   
-        expect(changeme_activity.name).to eq("bars")
+        expect(changeme_activity.name).to eq("bar")
       end
       it "returns an unsuccessful count" do
-        patch :update, params: {id: changeme_activity.id, activity_type: invalid_attributes}
+        patch :update, params: {id: changeme_activity.id, attraction: invalid_attributes}
         changeme_activity.reload
   
         expect(changeme_activity.name).to eq("changeme")
@@ -101,10 +101,10 @@ RSpec.describe AttractionsController, type: :controller do
   
     describe "DELETE #destroy" do
       it "returns a success" do
-        before_delete = ActivityType.count
+        before_delete = Attraction.count
         delete :destroy, params: {id: deleteme_activity.id}
   
-        expect(ActivityType.count).to eq(before_delete -1)
+        expect(Attraction.count).to eq(before_delete -1)
       end
     end
   end

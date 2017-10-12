@@ -26,7 +26,7 @@ class AttractionsController < ApplicationController
       # POST  attractions
       # POST  attractions.json
       def create
-          @attraction = Attraction.new  attraction_params)
+          @attraction = Attraction.new  (attraction_params)
     
         respond_to do |format|
           if  @attraction.save
@@ -43,7 +43,7 @@ class AttractionsController < ApplicationController
       # PATCH/PUT  attractions/1.json
       def update
         respond_to do |format|
-          if  @attraction.update  attraction_params)
+          if  @attraction.update  (attraction_params)
             format.html { redirect_to  @attraction, notice:  'attraction was successfully updated.' }
             format.json { render :show, status: :ok, location: @attraction }
           else
@@ -71,6 +71,6 @@ class AttractionsController < ApplicationController
     
         # Never trust parameters from the scary internet, only allow the white list through.
         def attraction_params
-          params.require(:attraction).permit(:name)
+          params.require(:attraction).permit(:name, :longitude, :latitude, :speciality)
         end
     end

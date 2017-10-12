@@ -1,0 +1,11 @@
+<% provide(:title, "Show an attraction") %>
+
+<h1>Attraction</h1>
+
+<p><%= @attraction.name %></p>
+<p><%= @attraction.longitude %></p>
+<p><%= @attraction.latitude %></p>
+<p><%= @attraction.speciality %></p>
+
+<%= link_to 'Back', attractions_path %>
+<%= link_to 'Edit', edit_attraction_path(@attraction) %>
