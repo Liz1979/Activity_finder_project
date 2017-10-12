@@ -1,0 +1,20 @@
+<% provide(:title, "Index") %>
+
+<table align = center border = 1>
+<tr>
+  <th>location</th>
+</tr>
+  <% @locations.each do |location| %>
+    <tr> 
+         <td><%= location.name %></br></br>
+         <%= location.country %></br></br>
+         <%= location.longitude %></br></br>
+         <%= location.latitude %></td>
+         <td><%= link_to 'Show', location %></td> 
+         <td><%= link_to 'Edit', edit_location_path(location) %></td>
+         <td><%= link_to 'Delete', location, method: :delete, data: {confirm: "Are you sure?"} %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p align = center><%= link_to 'Create new location', new_location_path %></p>

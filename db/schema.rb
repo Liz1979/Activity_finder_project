@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171011130715) do
+ActiveRecord::Schema.define(version: 20171012125010) do
 
   create_table "activity_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(version: 20171011130715) do
     t.float "longitude", limit: 24
     t.float "latitude", limit: 24
     t.text "speciality"
+    t.bigint "activity_type_id"
+    t.index ["activity_type_id"], name: "index_attractions_on_activity_type_id"
+  end
+
+  create_table "locations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.string "country"
+    t.float "longitude", limit: 24
+    t.float "latitude", limit: 24
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
