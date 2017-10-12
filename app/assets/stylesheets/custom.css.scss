@@ -1,0 +1,40 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+#tooplate_wrapper {
+	border: 2px border-style #000;
+	width: 960px;
+	padding: 0 9px;
+	margin: 0 auto;
+  background-image: url("wtf.jpg") !important;
+}
+
+#tooplate_header {
+	width: 880px;
+	height: 100px;
+	padding: 0 40px;
+	background-color: #3779ba ;
+}
+
+#tooplate_main {
+	clear: both;
+	width: 880px;
+	padding: 10px 40px 0;
+	background: url(images/tooplate_main.jpg) no-repeat top
+}
+
+#slider_wrapper {
+	clear: both;
+	width: 880px;
+	height: 320px;
+	background: url(images/tooplate_slider.png) bottom center no-repeat
+}
+
+#tooplate_footer {
+	clear: both;
+	padding: 20px 0;
+	text-align: center;
+	background: #d7e8f9;
+}
+
+#tooplate_footer a { color: #000 }
