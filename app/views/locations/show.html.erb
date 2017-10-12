@@ -1,0 +1,11 @@
+<% provide(:title, "Show a location") %>
+
+<h1>location</h1>
+
+<p><%= @location.name %></p>
+<p><%= @location.country %></p>
+<p><%= @location.longitude %></p>
+<p><%= @location.latitude %></p>
+
+<%= link_to 'Back', locations_path %>
+<%= link_to 'Edit', edit_location_path(@location) %>

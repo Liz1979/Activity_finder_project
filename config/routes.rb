@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
   resources :activity_types
+  resources :locations
   resources :attractions
   resources :users, except: [:new]
   get '/signup', to: 'users#new', as: :new_user
