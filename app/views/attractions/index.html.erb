@@ -1,0 +1,20 @@
+<% provide(:title, "Index") %>
+
+<table align = center border = 1>
+<tr>
+  <th>Attraction</th>
+</tr>
+  <% @attractions.each do |attraction| %>
+    <tr> 
+         <td><%= attraction.name %></br></br>
+         <%= attraction.longitude %></br></br>
+         <%= attraction.latitude %></br></br>
+         <%= attraction.speciality %></td>
+         <td><%= link_to 'Show', attraction %></td> 
+         <td><%= link_to 'Edit', edit_attraction_path(attraction) %></td>
+         <td><%= link_to 'Delete', attraction, method: :delete, data: {confirm: "Are you sure?"} %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p align = center><%= link_to 'Create new attraction', new_attraction_path %></p>
