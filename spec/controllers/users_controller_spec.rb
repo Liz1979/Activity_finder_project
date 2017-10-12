@@ -24,22 +24,22 @@ require 'rails_helper'
 # `rails-controller-testing` gem.
 
 RSpec.describe UsersController, type: :controller do
-
+  render_views
   # This should return the minimal set of attributes required to create a valid
   # User. As you add validations to User, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+  let!(:admin_user) {User.create!(username:"Admin",name: "Admin Test", password: "password", password_confirmation: "password")}
+  let!(:normal_user) {User.create!(username:"User",name: "Notanadmin Test", password: "password", password_confirmation: "password")}
+  let(:valid_attributes) { {username: "ValidName",name:"Testy McTest",password:"password",password_confirmation: "password" } }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {username: "ValidName",name:"Testy McTest",password:"password",password_confirmation: "notpassword"}
   }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # UsersController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:valid_session) { {user_id: normal_user.id} }
 
   describe "GET #index" do
     it "returns a success response" do
@@ -96,15 +96,14 @@ RSpec.describe UsersController, type: :controller do
 
   describe "PUT #update" do
     context "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+      let(:new_attributes) { {username: "OtherValidName",password:"password",password_confirmation: "password" }
       }
 
       it "updates the requested user" do
         user = User.create! valid_attributes
         put :update, params: {id: user.to_param, user: new_attributes}, session: valid_session
         user.reload
-        skip("Add assertions for updated state")
+        expect(user.username).to eq("OtherValidName")
       end
 
       it "redirects to the user" do

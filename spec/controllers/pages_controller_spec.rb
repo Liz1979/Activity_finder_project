@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe PagesController, type: :controller do
-
+  render_views
   describe "GET #home" do
     it "returns http success" do
       get :home
@@ -10,7 +10,7 @@ RSpec.describe PagesController, type: :controller do
 
     it "checks the title is correct" do
       get :home
-      expect(:title).to be_eq("Home | activity finder")
+      expect(response.body).to include("<title>Home | Activity Finder</title>")
     end
   end
 
@@ -18,12 +18,12 @@ RSpec.describe PagesController, type: :controller do
     it "returns http success" do
       get :help
       expect(response).to have_http_status(:success)
-    end    
-    
+    end
+
     it "returns http success" do
       get :help
-      expect(:title).to be_eq()
-
+      expect(response.body).to include("<title>Help | Activity Finder</title>")
+    end
   end
 
 end
