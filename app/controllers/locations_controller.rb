@@ -70,16 +70,17 @@ class LocationsController < ApplicationController
           new_attractions.each do |att|
 
             if Attraction.where(place_id: att.id).blank?
-              # if ActivityType.where(name: att.types[0]).blank?
-              #   new_type = ActivityType.create!(name: att.types[0])
-              # else
-              #   new_type = ActivityType.where(name: att.types[0])
-              # end
-              location.attractions.build(name: att.name, longitude: att.lng, latitude: att.lat, place_id: att.id)
+              if ActivityType.where(name: att.types[0]).blank?
+                new_type = ActivityType.create!(name: att.types[0])
+              else
+                new_type = ActivityType.where(name: att.types[0])
+              end
+              new_loc = location.attractions.create!(name: att.name, longitude: att.lng, latitude: att.lat, place_id: att.id, activity_type: new_type[0])
             else
               location.attractions << Attraction.where(place_id: att.id)
             end
           end
+          location.save
         end
 
 
