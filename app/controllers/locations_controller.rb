@@ -65,11 +65,19 @@ class LocationsController < ApplicationController
         end
 
         def find_nearby_api(location, radius_in_miles)
-          @client ||= GooglePlaces::Client.new(Geocoder.config.api_key)
+          @client ||= GooglePlaces::Client.new("AIzaSyAADeuCERgTEmX8l7AXmQVKO_HfQkyhQ9s")
           new_attractions = @client.spots(location.latitude,location.longitude, :radius => radius_in_miles * 1600)
           new_attractions.each do |att|
+
             if Attraction.where(place_id: att.id).blank?
-              Attraction.create!(name: att.name, longitude: att.lng, latitude: att.lat, place_id: att.id)
+              # if ActivityType.where(name: att.types[0]).blank?
+              #   new_type = ActivityType.create!(name: att.types[0])
+              # else
+              #   new_type = ActivityType.where(name: att.types[0])
+              # end
+              location.attractions.build(name: att.name, longitude: att.lng, latitude: att.lat, place_id: att.id)
+            else
+              location.attractions << Attraction.where(place_id: att.id)
             end
           end
         end

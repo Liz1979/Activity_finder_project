@@ -75,6 +75,7 @@ GEM
     geocoder (1.4.4)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
+    gmaps4rails (2.1.2)
     google_places (0.34.2)
       httparty (>= 0.13.1, < 0.14.1)
     httparty (0.14.0)
@@ -217,6 +218,7 @@ DEPENDENCIES
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   geocoder
+  gmaps4rails
   google_places
   jbuilder (~> 2.5)
   jquery-rails

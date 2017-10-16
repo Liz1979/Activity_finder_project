@@ -6,6 +6,34 @@
 <p><%= @location.country %></p>
 <p><%= @location.longitude %></p>
 <p><%= @location.latitude %></p>
+<p><%= @location.address %></p>
 
+Nearby Attractions:</br>
+
+
+Map View:
+<div style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+</div>
+
+
+<script>
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  var circles = handler.addCircles(
+  [{ lat: <%= @location.latitude %>, lng: <%= @location.longitude %>, radius: 5*1600 }],
+  { strokeColor: '#FF0000'}
+);
+  markers = handler.addMarkers([
+    {
+      "lat": <%= @location.latitude %>,
+      "lng": <%= @location.longitude %>
+    }
+  ]);
+  handler.bounds.extendWith(markers);
+  handler.bounds.extendWith(circles);
+  handler.fitMapToBounds();
+});
+</script>
 <%= link_to 'Back', locations_path %>
 <%= link_to 'Edit', edit_location_path(@location) %>
