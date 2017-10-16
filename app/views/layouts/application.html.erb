@@ -9,21 +9,20 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-
-    <div id="tooplate_header">
-
-    </div> <!-- end of header -->
+<div class="container">
+  <div class="jumbotron">
+    <h1>On the beach</h1>
+    <p>Holiday planner</p>
+  </div>
+</div>
 
     <%= yield %>
 
-<div id="tooplate_footer">
+    <div id="tooplate_footer">
 
       Copyright © <a href="#">www.onthebeach.co.uk</a>
 
-</div> <!-- end of tooplate_footer -->
-
-
+    </div> <!-- end of tooplate_footer -->
 </body>
 </html>
