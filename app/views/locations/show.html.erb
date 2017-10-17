@@ -11,7 +11,7 @@
       <tr>
       <td>Country:</td><td><%= @location.country %></td>
       </tr>
-      <tr>      
+      <tr>
       <td>Longitude:</td><td><%= @location.longitude %></td>
       </tr>
       <tr>
@@ -24,10 +24,10 @@
       <p></p>
       <p><%= link_to 'Back', locations_path %> ||
       <%= link_to 'Edit', edit_location_path(@location) %></p>
-      
+
       <h3>Nearby Attractions:</h3></br>
       <% @location.attractions.each do |att| %>
-      <p><%= att.name %>  -   <%= att.activity_type.name %> </br></p>
+      <p><%= att.name %></br></p>
       <% end %>
       </br></br>
 
@@ -49,14 +49,16 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
     {
       "lat": <%= @location.latitude %>,
       "lng": <%= @location.longitude %>
-    }
+    },
+    <% @location.attractions.each do |att| %>
+    {
+      "lat": <%= att.latitude %>,
+      "lng": <%= att.longitude %>
+    },
+    <% end %>
   ]);
   handler.bounds.extendWith(markers);
   handler.bounds.extendWith(circles);
   handler.fitMapToBounds();
 });
 </script>
-      
-    
-
-
