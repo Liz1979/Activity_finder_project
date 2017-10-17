@@ -11,9 +11,12 @@
     </div>
   <% end %>
   <% end %>
-
+<div class = form>
 <%= form_for @location do |f| %>
-Name: <%= f.text_field :name %></br></br>
-Search: <%= f.text_field :search %></br></br>
+Name:</br> <%= f.text_field :name %></br>
+Search:<br> <%= f.text_field :search %></br>
+<p></p>
 <%= f.submit %>
+<p></p>
 <% end %>
+</div>

@@ -1,11 +1,45 @@
 <% provide(:title, "Show an attraction") %>
 
+<div class="form">
 <h1>Attraction</h1>
+</br>
+<table align = center>
+<tr>
+<td>Name: </td><td><%= @attraction.name %></td>
+</tr>
+<tr>
+<td>Longitude:</td><td><%= @attraction.longitude %></td>
+</tr>
+<tr>
+<td>Latitude:</td><td><%= @attraction.latitude %></td>
+</tr>
+<tr>
+<td>Speciality</td><td><%= @attraction.speciality %></td>
+</tr>
+</table>
+<p><%= link_to 'Back', attractions_path %> ||
+<%= link_to 'Edit', edit_attraction_path(@attraction) %></p>
 
-<p><%= @attraction.name %></p>
-<p><%= @attraction.longitude %></p>
-<p><%= @attraction.latitude %></p>
-<p><%= @attraction.speciality %></p>
-
-<%= link_to 'Back', attractions_path %>
-<%= link_to 'Edit', edit_attraction_path(@attraction) %>
+      <h3>Map View</h3>
+      <div style='width: 800px;'>
+      <div id="map" style='width: 800px; height: 400px; background-position: center;'></div>
+      </div>
+      </br>
+<script>
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  var circles = handler.addCircles(
+  [{ lat: <%= @attraction.latitude %>, lng: <%= @attraction.longitude %>, radius: 5*1600 }],
+  { strokeColor: '#FF0000', fillColor: '#888888'}
+);
+  markers = handler.addMarkers([
+    {
+      "lat": <%= @attraction.latitude %>,
+      "lng": <%= @attraction.longitude %>
+    }
+  ]);
+  handler.bounds.extendWith(markers);
+  handler.bounds.extendWith(circles);
+  handler.fitMapToBounds();
+});
+</script>

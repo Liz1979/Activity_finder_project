@@ -11,8 +11,11 @@
     </div>
   <% end %>
   <% end %>
-
+<div class = form>
 <%= form_for @activity_type do |f| %>
-Name: <%= f.text_field :name %>
+Name:</br> <%= f.text_field :name %></br>
+<p></p>
 <%= f.submit %>
+<p></p>
 <% end %>
+</div>

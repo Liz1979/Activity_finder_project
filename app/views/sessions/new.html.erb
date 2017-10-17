@@ -1,9 +1,11 @@
+<div class = form>
 <h1>Login</h1>
-
 <%= form_tag '/login' do %>
 
-  UserName: <%= text_field_tag :username %>
-  Password: <%= password_field_tag :password %>
+  UserName:</br> <%= text_field_tag :username %></br>
+  Password:</br> <%= password_field_tag :password %></br>
+  <p></p>
   <%= submit_tag "Submit" %>
-
+  <p></p>
 <% end %>
+</div>
