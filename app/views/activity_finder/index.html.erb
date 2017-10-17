@@ -1,2 +1,78 @@
-<h1>ActivityFinder#index</h1>
-<p>Find me in app/views/activity_finder/index.html.erb</p>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+      <li><%= link_to 'Find attractions', new_location_path %></li>
+      </ul>
+      <form class="navbar-form navbar-left">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+      <li><span class="glyphicon glyphicon-user"><%= link_to "SignUp ", new_user_path %> </li>
+      <li><span class="glyphicon glyphicon-log-in"><%= link_to "Login ", new_user_path %></li>
+    </ul> 
+    </div>
+  </div>
+</nav>
+  
+    <%= render 'layouts/sidebar', location: @location %>
+
+    <div class="col-sm-8 text-left"> 
+      <h1>The holiday planner</h1>
+      <p>By putting in the hotel you are going to we can show you all the activities and attractions available in that location.</p>
+      <hr>
+      </div>
+      <div class="col-sm-8 text-left"> 
+      <div class="col-sm-2 sidenav">
+      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>
+      </div>
+    </div>
+  </div>
+</div>

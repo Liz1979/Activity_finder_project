@@ -29,18 +29,23 @@
     <div class="col-sm-3 sidenav">
       <h4>Choose which attractions you would like to see</h4>
       <ul class="nav nav-pills nav-stacked">
-        <li class="active">Amusement Park: <%= check_box_tag(:amusement_park) %></li>
-        <li>Aquarium: <%= check_box_tag(:aquarium) %></li>
-        <li>Art Gallery: <%= check_box_tag(:art_gallery) %></li>
-        <li>Bar: <%= check_box_tag(:bar) %></li>
-        <li>Bowling Alley <%= check_box_tag(:bowling_alley) %></li>
-        <li>Cinima: <%= check_box_tag(:movie_theater) %></li>
-        <li>Museum : <%= check_box_tag(:museum) %></li>
-        <li>Night Club: <%= check_box_tag(:night_club) %></li>
-        <li>Restaurant: <%= check_box_tag(:restaurant) %></li>
-        <li>Shopping Center: <%= check_box_tag(:shopping_mall) %></li>
-        <li>Stadium: <%= check_box_tag(:stadium) %></li>
-        <li>Zoo: <%= check_box_tag(:zoo) %></br></br></li>
+        <li class="active"><%= form_for location do |f| %></li>
+        <li>Amusement Park: <%= check_box("activity_types", "types", {:multiple => true}, "amusement_park", nil) %></li>
+        <li>Aquarium: <%= check_box("activity_types", "types", {:multiple => true}, "aquarium", nil) %></li>
+        <li>Art Gallery: <%= check_box("activity_types", "types", {:multiple => true}, "art_gallery", nil) %></li>
+        <li>Bar: <%= check_box("activity_types", "types", {:multiple => true}, "bar", nil) %></li>
+        <li>Bowling Alley <%= check_box("activity_types", "types", {:multiple => true}, "bowling_alley", nil) %></li>
+        <li>Cinima: <%= check_box("activity_types", "types", {:multiple => true}, "movie_theater", nil) %></li>
+        <li>Museum : <%= check_box("activity_types", "types", {:multiple => true}, "museum", nil) %></li>
+        <li>Night Club: <%= check_box("activity_types", "types", {:multiple => true}, "night_club", nil) %></li>
+        <li>Restaurant: <%= check_box("activity_types", "types", {:multiple => true}, "restaurant", nil) %></li>
+        <li>Shopping Center: <%= check_box("activity_types", "types", {:multiple => true}, "shopping_mall", nil) %></li>
+        <li>Stadium: <%= check_box("activity_types", "types", {:multiple => true}, "stadium", nil) %></li>
+        <li>Zoo: <%= check_box("activity_types", "types", {:multiple => true}, "zoo", nil) %></br></br></li>
+        </br></br>
+        <li><%= f.submit %></li>
+        </br></br>
+        <% end %>
       </ul><br>
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Search ..">

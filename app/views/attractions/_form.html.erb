@@ -11,11 +11,14 @@
     </div>
   <% end %>
   <% end %>
-
+<div class = form>
 <%= form_for @attraction do |f| %>
-Name: <%= f.text_field :name %></br></br>
-Longitude: <%= f.text_field :longitude %></br></br>
-Latitide: <%= f.text_field :latitude %></br></br>
-Speciality: <%= f.text_field :speciality %></br></br>
+Name:</br> <%= f.text_field :name %></br>
+Longitude:</br> <%= f.text_field :longitude %></br>
+Latitide: </br><%= f.text_field :latitude %></br>
+Speciality: </br><%= f.text_field :speciality %></br>
+<p></p>
 <%= f.submit %>
+<p></p>
 <% end %>
+</div>
