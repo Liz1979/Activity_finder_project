@@ -2,27 +2,27 @@
   <style>
     /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
     .row.content {height: 1500px}
-    
+
     /* Set gray background color and 100% height */
     .sidenav {
       background-color: #f1f1f1;
       height: 100%;
     }
-    
+
     /* Set black background color, white text and some padding */
     footer {
       background-color: #555;
       color: white;
       padding: 15px;
     }
-    
+
     /* On small screens, set height to 'auto' for sidenav and grid */
     @media screen and (max-width: 767px) {
       .sidenav {
         height: auto;
         padding: 15px;
       }
-      .row.content {height: auto;} 
+      .row.content {height: auto;}
     }
   </style>
 <div class="container-fluid">
@@ -53,24 +53,8 @@
       </div>
     </div>
 
-<<<<<<< HEAD
-<h1>location</h1>
-
-<p><%= @location.name %></p>
-<p><%= @location.country %></p>
-<p><%= @location.longitude %></p>
-<p><%= @location.latitude %></p>
-<p><%= @location.address %></p>
-
-Nearby Attractions:</br>
-
-<% @location.attractions.each do |att| %>
-  <%= att.name %></br>
-<% end %>
-
-=======
     <div class="col-sm-9">
-      <h2>Locations</h2>
+      <h2>Location</h2>
       </br>
       <p>Name: <%= @location.name %></p>
       <p>Country: <%= @location.country %></p>
@@ -80,10 +64,9 @@ Nearby Attractions:</br>
       </br></br>
       <h3>Nearby Attractions:</h3></br>
       <% @location.attractions.each do |att| %>
-      <p><%= att.name %>  -   <%= att.activity_type.name %> </br></p>
+      <p><%= att.name %> </br></p>
       <% end %>
-      </br></br>
->>>>>>> c03e32566fa1140f84df6bf8442e24d2a0821dce
+    </br></br>
 
       <h3>Map View</h3>
       <div style='width: 800px;'>
@@ -117,7 +100,3 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
 </script>
 <%= link_to 'Back', locations_path %>
 <%= link_to 'Edit', edit_location_path(@location) %>
-      
-    
-
-
