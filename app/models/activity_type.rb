@@ -1,4 +1,4 @@
 class ActivityType < ApplicationRecord
-  has_many :attractions
+  has_and_belongs_to_many :attractions
   validates :name, presence: true
 end
