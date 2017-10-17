@@ -1,6 +1,5 @@
 class LocationsController < ApplicationController
     before_action :location, only: [:show, :update, :edit, :destroy]
-    before_action :google_places_client, only: :find_nearby_api
         # GET  Location
         # GET  location.json
         def index
@@ -65,30 +64,31 @@ class LocationsController < ApplicationController
         end
 
         def find_nearby_api(location, radius_in_miles)
-          @client ||= GooglePlaces::Client.new("AIzaSyAADeuCERgTEmX8l7AXmQVKO_HfQkyhQ9s")
+          @client ||= GooglePlaces::Client.new(Rails.application.secrets.api_key)
           new_attractions = @client.spots(location.latitude,location.longitude, :radius => radius_in_miles * 1600)
           new_attractions.each do |att|
-
-            if Attraction.where(place_id: att.id).blank?
-              if ActivityType.where(name: att.types[0]).blank?
-                new_type = ActivityType.create!(name: att.types[0])
-              else
-                new_type = ActivityType.where(name: att.types[0])
+            if !Attraction.exists?(place_id: att.id)
+              new_loc = {name: att.name, longitude: att.lng, latitude: att.lat, place_id: att.id}
+              location.attractions.build(new_loc)
+              att.types.each do |type|
+                if !ActivityType.exists?(name: type)
+                  new_type = ActivityType.create!(name: type)
+                else
+                  new_type = ActivityType.find_by_name(type)
+                end
+                new_type.attractions.build(new_loc)
+                new_type.save!
               end
-              new_loc = location.attractions.create!(name: att.name, longitude: att.lng, latitude: att.lat, place_id: att.id, activity_type: new_type[0])
             else
-              location.attractions << Attraction.where(place_id: att.id)
+              location.attractions << Attraction.find_by_place_id(att.id)
             end
           end
-          location.save
+          location.save!
         end
 
 
         private
 
-          def google_places_client
-            @client ||= GooglePlaces::Client.new(Geocoder.config.api_key)
-          end
           # Use callbacks to share common setup or constraints between actions.s
           def location
             @location = Location.find(params[:id])
