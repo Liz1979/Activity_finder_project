@@ -3,7 +3,7 @@
     <div class="col-sm-9">
       <h2>Locations</h2>
       </br>
-      <table>
+      <table align = center>
       <tr>
       <td>Name:</td><td><%= @location.name %></td>
       </tr>
@@ -29,35 +29,5 @@
       <p><%= att.name %> - <% att.activity_types.each do |typ| %> <%= typ.name %> <% end %></br></p>
       <% end %>
       </br></br>
-
-      <h3>Map View</h3>
-      <div style='width: 800px;'>
-      <div id="map" style='width: 800px; height: 400px;'></div>
       </div>
-      </br>
-
-
-<script>
-handler = Gmaps.build('Google');
-handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-  var circles = handler.addCircles(
-  [{ lat: <%= @location.latitude %>, lng: <%= @location.longitude %>, radius: 5*1600 }],
-  { strokeColor: '#FF0000', fillColor: '#888888'}
-);
-  markers = handler.addMarkers([
-    {
-      "lat": <%= @location.latitude %>,
-      "lng": <%= @location.longitude %>
-    },
-    <% @location.attractions.each do |att| %>
-    {
-      "lat": <%= att.latitude %>,
-      "lng": <%= att.longitude %>
-    },
-    <% end %>
-  ]);
-  handler.bounds.extendWith(markers);
-  handler.bounds.extendWith(circles);
-  handler.fitMapToBounds();
-});
-</script>
+     <%= render 'layouts/map', location: @location %>

@@ -35,7 +35,8 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
   markers = handler.addMarkers([
     {
       "lat": <%= @attraction.latitude %>,
-      "lng": <%= @attraction.longitude %>
+      "lng": <%= @attraction.longitude %>,
+      "infowindow": "<%= @attraction.name %>"
     }
   ]);
   handler.bounds.extendWith(markers);

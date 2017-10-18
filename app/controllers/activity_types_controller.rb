@@ -5,6 +5,7 @@ class ActivityTypesController < ApplicationController
     # GET  activity_types.json
     def index
       @activity_types = ActivityType.all
+      ActivityType.paginate(:page => params[:page], :per_page => 30)
     end
   
     # GET  activity_types/1

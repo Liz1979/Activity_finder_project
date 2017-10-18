@@ -1,8 +1,9 @@
 <% provide(:title, "Show an activity") %>
-
+<div class = form>
 <h1>Activity Type</h1>
 
 <p><%= @activity_type.name %></p>
 
-<%= link_to 'Back', activity_types_path %>
-<%= link_to 'Edit', edit_activity_type_path(@activity_type) %>
+<p><%= link_to 'Back', activity_types_path %> ||
+<%= link_to 'Edit', edit_activity_type_path(@activity_type) %></p>
+</div>
