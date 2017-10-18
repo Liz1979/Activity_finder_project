@@ -1,27 +1,27 @@
   <style>
     /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
     .row.content {height: 1500px}
-    
+
     /* Set gray background color and 100% height */
     .sidenav {
       background-color: #d7e8f9;
       height: 50%;
     }
-    
+
     /* Set black background color, white text and some padding */
     footer {
       background-color: #555;
       color: white;
       padding: 15px;
     }
-    
+
     /* On small screens, set height to 'auto' for sidenav and grid */
     @media screen and (max-width: 767px) {
       .sidenav {
         height: auto;
         padding: 15px;
       }
-      .row.content {height: auto;} 
+      .row.content {height: auto;}
     }
   </style>
   <div class="container-fluid">
@@ -43,16 +43,9 @@
         <li>Stadium: <%= check_box("activity_types", "types", {:multiple => true}, "stadium", nil) %></li>
         <li>Zoo: <%= check_box("activity_types", "types", {:multiple => true}, "zoo", nil) %></br></br></li>
         </br></br>
+        <li><%= f.text_field :search, placeholder: "Search" %> </li>
         <li><%= f.submit %></li>
         </br></br>
         <% end %>
       </ul><br>
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search ..">
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="button">
-            <span class="glyphicon glyphicon-search"></span>
-          </button>
-        </span>
-      </div>
     </div>
