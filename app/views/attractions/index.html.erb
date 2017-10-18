@@ -16,9 +16,9 @@
     </tr>
   <% end %>
 </table>
-
+<div class = form>
 <%= will_paginate @attraction %>
-
+</div>
 <p align = center><%= link_to 'Create new attraction', new_attraction_path %></p>
 <p align = center><%= link_to 'Create new location', new_location_path %></p>
 <p align = center><%= link_to 'New User', new_user_path %></p>
