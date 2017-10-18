@@ -10,7 +10,7 @@ class LocationsController < ApplicationController
         # GET  location/1
         # GET  location/1.json
         def show
-
+          @icons = icon_urls
         end
 
         # GET  location/new
@@ -34,6 +34,7 @@ class LocationsController < ApplicationController
                 find_nearby_api(@foundloc, 5)
                 redirect_to @foundloc
               else
+                find_nearby_api(@foundloc, 5, type_params)
                 redirect_to result_path(location_id: @foundloc.id, display: type_params)
               end
             else
@@ -82,6 +83,7 @@ class LocationsController < ApplicationController
         def find_nearby_api(location, radius_in_miles, search = search_types)
           @client ||= GooglePlaces::Client.new(Rails.application.secrets.api_key)
           new_attractions = @client.spots(location.latitude,location.longitude, :radius => radius_in_miles * 1600, :types => search)
+          # open("#{location.address.parameterize}-#{Time.now.to_i}.txt", "w"){|f| f.write(new_attractions)          }
           new_attractions.each do |att|
             unless Attraction.exists?(place_id: att.id)
               new_params = {name: att.name, longitude: att.lng, latitude: att.lat, place_id: att.id}
@@ -99,7 +101,9 @@ class LocationsController < ApplicationController
               end
               new_att.save!
             else
-              location.attractions << Attraction.find_by_place_id(att.id)
+              unless location.attractions.include?(Attraction.find_by_place_id(att.id))
+                location.attractions << Attraction.find_by_place_id(att.id)
+              end
             end
           end
           location.save!
@@ -123,7 +127,7 @@ class LocationsController < ApplicationController
               'embassy',
               'hindu_temple',
               'meal_delivery',
-              'meal_takeout',
+              'meal_takeaway',
               'mosque',
               'movie_theater',
               'museum',
