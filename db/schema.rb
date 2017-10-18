@@ -12,13 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20171017080423) do
 
-  create_table "activity_type_attraction", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "attraction_id", null: false
-    t.bigint "activity_type_id", null: false
-    t.index ["activity_type_id", "attraction_id"], name: "index_act_att_on_act_id_and_att_id"
-    t.index ["attraction_id", "activity_type_id"], name: "index_act_att_on_att_id_and_act_id"
-  end
-
   create_table "activity_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.datetime "created_at", null: false
