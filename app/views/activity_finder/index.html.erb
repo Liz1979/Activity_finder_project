@@ -31,11 +31,16 @@
     <%= render 'layouts/sidebar', location: @location %>
 
     <div class="col-sm-8 text-left">
-      <h1>The holiday planner</h1>
+      </br>
+      <h3>The holiday planner</h3>
       <p>To use the holiday planner you can either:</p>
       <p>1. Put an address in the search bar, pick the activities you would like to search for, then press "create location".</p>
-      <p>or</p>  
+      <p>or</p> 
+      <p>2. From a hotel booking, pick the activities yoiu would like to search on, press "plan your trip"</p>  
       <hr>
+      <%= render 'layouts/map_key', location: @location %>
+      <hr>
+      <h3> Holidays booked</h3>
       </div>
       <div class="col-sm-8 text-left">
       <div class="col-sm-12 sidenav">
