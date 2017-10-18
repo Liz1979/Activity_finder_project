@@ -8,21 +8,21 @@
 handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
   var circles = handler.addCircles(
-  [{ lat: <%= @location.latitude %>, lng: <%= @location.longitude %>, radius: 5*1600 }],
+  [{ lat: <%= location.latitude %>, lng: <%= location.longitude %>, radius: 5*1600 }],
   { strokeColor: '#FF0000', fillColor: '#888888'}
 );
   markers = handler.addMarkers([
     {
-      "lat": <%= @location.latitude %>,
-      "lng": <%= @location.longitude %>
+      "lat": <%= location.latitude %>,
+      "lng": <%= location.longitude %>
     },
-    <% @location.attractions.each do |att| %>
+    <% location.attractions.each do |att| %>
     {
       "lat": <%= att.latitude %>,
       "lng": <%= att.longitude %>,
       "infowindow": "<%= att.name %>",
       "picture": {
-          "url": "<%= image_url(@icons[att.activity_types[0].name])%>",
+          "url": "<%= image_url(icons[att.activity_types.first.name])%>",
           "width": 20,
           "height": 34,
         },

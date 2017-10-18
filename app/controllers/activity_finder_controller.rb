@@ -1,6 +1,7 @@
 class ActivityFinderController < ApplicationController
   def index
     @location = Location.new
+    @types = icons.keys
   end
   def result
     @icons = icon_urls

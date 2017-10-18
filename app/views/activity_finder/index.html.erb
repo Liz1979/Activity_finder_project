@@ -1,41 +1,41 @@
   <style>
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
     .row.content {height: 450px}
-    
+
     /* Set gray background color and 100% height */
     .sidenav {
       padding-top: 20px;
       background-color: #f1f1f1;
       height: 100%;
     }
-    
+
     /* Set black background color, white text and some padding */
     footer {
       background-color: #555;
       color: white;
       padding: 15px;
     }
-    
+
     /* On small screens, set height to 'auto' for sidenav and grid */
     @media screen and (max-width: 767px) {
       .sidenav {
         height: auto;
         padding: 15px;
       }
-      .row.content {height:auto;} 
+      .row.content {height:auto;}
     }
   </style>
 </head>
 <body>
-  
+
     <%= render 'layouts/sidebar', location: @location %>
 
-    <div class="col-sm-8 text-left"> 
+    <div class="col-sm-8 text-left">
       <h1>The holiday planner</h1>
       <p>By putting in the hotel you are going to we can show you all the activities and attractions available in that location.</p>
       <hr>
       </div>
-      <div class="col-sm-8 text-left"> 
+      <div class="col-sm-8 text-left">
       <div class="col-sm-12 sidenav">
       <h3>Poseidon Resort</h3>
 
@@ -43,11 +43,29 @@
       <p>Poseidon Resort is located just a 5-minute walk from the Levante beach, the old town and the centre of Benidorm. The hotel boasts 2 outdoor swimming pools. It is only a short walk to the nearest bars, shops and restaurants.</P>
       </br>
       <p>## For group bookings, please contact our sales team prior to booking to discuss your requirements. The hotel will only accept group bookings on…</p>
-       <%= form_for @location do |f| %>
-       <%= f.hidden_field :search, value: "Calle del Esperanto, 9, 03503 Benidorm, Alicante, Spain" %>
-       <p align = right><%= f.submit "Plan Your Trip"%></p>
-       <% end %>
+       <%= form_tag(locations_path) %>
+        <%# @types.each do |typ| %>
+        <%#= hidden_field_tag "activity_types[#{typ}]", %>
+        <%# end %>
+        <%= hidden_field_tag "activity_types_mirror" %>
+        <%= hidden_field_tag "location[search]", "Calle del Esperanto, 9, 03503 Benidorm, Alicante, Spain" %>
+       <p align = right><%= submit_tag "Plan Your Trip"%></p>
+       <%# end %>
       </div>
     </div>
   </div>
 </div>
+<script>
+$("[id^=activity_types_types_]").change(function(){
+
+    var oChecked = new Array();
+
+    $("[id^=activity_types_types_]").each(function(index, val){
+        if($(val).is(":checked"))
+        oChecked.push($(val).val());
+    });
+
+    $("#activity_types_mirror").val(oChecked);
+    console.log($('#activity_types_mirror').val())
+});
+</script>

@@ -3,8 +3,7 @@ class LocationsController < ApplicationController
         # GET  Location
         # GET  location.json
         def index
-           @locations = Location.all.paginate(:page => params[:page], :per_page => 10)
-
+          @locations = Location.all.paginate(:page => params[:page], :per_page => 10)
         end
 
         # GET  location/1
@@ -15,7 +14,7 @@ class LocationsController < ApplicationController
 
         # GET  location/new
         def new
-            @location = Location.new
+          @location = Location.new
         end
 
         # GET  location/1/edit
@@ -26,16 +25,20 @@ class LocationsController < ApplicationController
         # POST  location
         # POST  location.json
         def create
+          #raise params.inspect
           @location = Location.new  (location_params)
           if @location.geocode
             if Location.exists?(address: @location.address)
               @foundloc = Location.find_by_address(@location.address)
-              if type_params.empty?
+              if type_params.empty? && mirror_params.empty?
                 find_nearby_api(@foundloc, 5)
                 redirect_to @foundloc
-              else
+              elsif mirror_params.empty?
                 find_nearby_api(@foundloc, 5, type_params)
                 redirect_to result_path(location_id: @foundloc.id, display: type_params)
+              else
+                find_nearby_api(@foundloc, 5, mirror_params)
+                redirect_to result_path(location_id: @foundloc.id, display: mirror_params)
               end
             else
               if @location.save
@@ -155,6 +158,13 @@ class LocationsController < ApplicationController
           def type_params
             if params.include?(:activity_types)
               params[:activity_types][:types]
+            else
+              []
+            end
+          end
+          def mirror_params
+            if params.include?(:activity_types_mirror)
+              params[:activity_types_mirror].split(',')
             else
               []
             end
