@@ -32,18 +32,21 @@
 
     <div class="col-sm-8 text-left"> 
       <h1>The holiday planner</h1>
-      <p>By putting in the hotel you are going to we can show you all the activities and attractions available in that location.</p>
+      <p>To use the holiday planner you can either:</p>
+      <p>1. Put an address in the search bar, pick the activities you would like to search for, then press "create location".</p>
+      <p>or</p>  
       <hr>
       </div>
       <div class="col-sm-8 text-left"> 
       <div class="col-sm-12 sidenav">
       <h3>Poseidon Resort</h3>
-
+      <%= image_tag "poseidon-resort.jpeg", :class => "image" %>
       <p>Overview</p>
       <p>Poseidon Resort is located just a 5-minute walk from the Levante beach, the old town and the centre of Benidorm. The hotel boasts 2 outdoor swimming pools. It is only a short walk to the nearest bars, shops and restaurants.</P>
       </br>
       <p>## For group bookings, please contact our sales team prior to booking to discuss your requirements. The hotel will only accept group bookings on…</p>
-       <%= form_for @location do |f| %>
+       <%= form_for @location  do |f| %>
+       <%= f.hidden_field :name, value: "Poseiden Hotel" %>
        <%= f.hidden_field :search, value: "Calle del Esperanto, 9, 03503 Benidorm, Alicante, Spain" %>
        <p align = right><%= f.submit "Plan Your Trip"%></p>
        <% end %>
