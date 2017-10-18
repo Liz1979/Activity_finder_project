@@ -123,7 +123,7 @@ class LocationsController < ApplicationController
               'embassy',
               'hindu_temple',
               'meal_delivery',
-              'meal_takeout',
+              'meal_takeaway',
               'mosque',
               'movie_theater',
               'museum',

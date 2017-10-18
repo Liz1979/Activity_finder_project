@@ -36,10 +36,17 @@
       <hr>
       </div>
       <div class="col-sm-8 text-left"> 
-      <div class="col-sm-2 sidenav">
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
+      <div class="col-sm-12 sidenav">
+      <h3>Poseidon Resort</h3>
+
+      <p>Overview</p>
+      <p>Poseidon Resort is located just a 5-minute walk from the Levante beach, the old town and the centre of Benidorm. The hotel boasts 2 outdoor swimming pools. It is only a short walk to the nearest bars, shops and restaurants.</P>
+      </br>
+      <p>## For group bookings, please contact our sales team prior to booking to discuss your requirements. The hotel will only accept group bookings on…</p>
+       <%= form_for @location do |f| %>
+       <%= f.hidden_field :search, value: "Calle del Esperanto, 9, 03503 Benidorm, Alicante, Spain" %>
+       <p align = right><%= f.submit "Plan Your Trip"%></p>
+       <% end %>
       </div>
     </div>
   </div>
