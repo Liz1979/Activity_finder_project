@@ -1,10 +1,8 @@
-
-
-<div style='width: 800px;'>
+<h3 align = center>Map View</h3>
+<div style='padding: 0px 0px 0px 180px; width: 800px;'>
 <div id="map" style='width: 800px; height: 400px;'></div>
 </div>
 </br>
-
 
 <script>
   handler = Gmaps.build('Google');
@@ -21,7 +19,8 @@
   <% @display_attractions.each do |att| %>
   {
   "lat": <%= att.latitude %>,
-  "lng": <%= att.longitude %>
+  "lng": <%= att.longitude %>,
+  "infowindow": "<%= att.name %>"
   },
   <% end %>
   ]);
@@ -29,4 +28,5 @@
   handler.bounds.extendWith(circles);
   handler.fitMapToBounds();
 });
+
 </script>
