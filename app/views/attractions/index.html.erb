@@ -1,6 +1,5 @@
 <% provide(:title, "Index") %>
 <h1 align = center>Attractions Table</h1>
-<% will_paginate @attraction %>
 <table align = center border = 1>
 <tr>
   <th>Attraction</th>
@@ -17,6 +16,8 @@
     </tr>
   <% end %>
 </table>
+
+<%= will_paginate @attraction %>
 
 <p align = center><%= link_to 'Create new attraction', new_attraction_path %></p>
 <p align = center><%= link_to 'Create new location', new_location_path %></p>

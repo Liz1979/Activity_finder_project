@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root 'activity_finder#index'
+  get '/result', to: 'activity_finder#result', as: 'result'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
@@ -11,6 +12,5 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new', as: :new_user
   get '/help', to: 'pages#help'
   get '/home', to: 'pages#home'
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

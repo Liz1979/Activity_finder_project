@@ -1,5 +1,6 @@
 <% provide(:title, "Show a location") %>
-<div class = form>
+
+    <div class="col-sm-9">
       <h2>Locations</h2>
       </br>
       <table align = center>
@@ -25,7 +26,7 @@
 
       <h3>Nearby Attractions:</h3></br>
       <% @location.attractions.each do |att| %>
-      <p><%= att.name %></br></p>
+      <p><%= att.name %> - <% att.activity_types.each do |typ| %> <%= typ.name %> <% end %></br></p>
       <% end %>
       </br></br>
       </div>

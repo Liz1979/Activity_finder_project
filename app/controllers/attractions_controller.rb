@@ -4,7 +4,7 @@ class AttractionsController < ApplicationController
       # GET  attraction
       # GET  attractions.json
       def index
-         @attractions = Attraction.paginate(:page => params[:page], :per_page => 10)
+         @attractions = Attraction.all.paginate(:page => params[:page], :per_page => 10)
       end
 
       # GET  attractions/1
