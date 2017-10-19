@@ -16,14 +16,17 @@
 <tr>
 <td>Speciality</td><td><%= @attraction.speciality %></td>
 </tr>
-</table>
-<p><%= link_to 'Back', attractions_path %> ||
-<%= link_to 'Edit', edit_attraction_path(@attraction) %></p>
+</table> 
+<p><%= link_to 'Back', root_path %> <br>
+  <% if @photo == "whut.jpg" %>
+    <%= image_tag @photo %>
+  <% else %>
+    <img src= <%= @photo %> > </img>
+  <% end %>
 <hr>
 <hr>
 <h3 align = center>Map View</h3>
  <%= render 'layouts/map' %>
- 
 <script>
 handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){

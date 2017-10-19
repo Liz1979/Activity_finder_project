@@ -18,7 +18,7 @@
   {
   "lat": <%= att.latitude %>,
   "lng": <%= att.longitude %>,
-  "infowindow": "<%= att.name %>",
+  "infowindow": "<a href='/attractions/<%= att.id %>'><%= att.name %></a>",
   "picture": {
       "url": "<%= image_url(@icons[att.activity_types[0].name])%>",
       "width": 20,
