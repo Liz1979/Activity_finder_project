@@ -39,6 +39,11 @@ a:hover {
 p {
 	margin: 0 0 10px 0;
 	padding: 0;
+	color: #4623E4;
+}
+
+li {
+	color: #4623E4;
 }
 
 img {
@@ -51,10 +56,10 @@ em {
 	font-style: normal;
 }
 
-h1, h2, h3, h4, h5, h6 { color: #3779ba; font-weight: normal; }
+h1, h2, h3, h4, h5, h6 { color: #070BCE; font-weight: normal; }
 h1 { font-size: 38px; margin: 0 0 20px 0; padding: 5px 0 }
 h2 { font-size: 30px; margin: 0 0 15px 0; padding: 5px 0; }
-h3 { font-size: 24px; margin: 0 0 15px; padding: 0; }
+h3 { font-size: 24px; margin: 0 0 15px; padding: 0; } 
 h4 { font-size: 18px; margin: 0 0 15px; padding: 0; }
 h5 { font-size: 16px; margin: 0 0 10px; padding: 0;  }
 h6 { font-size: 14px; margin: 0 0 5px; padding: 0; }

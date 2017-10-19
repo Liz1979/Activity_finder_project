@@ -6,6 +6,8 @@
     .sidenav {
       background-color: #d7e8f9;
       height: 80%;
+      border-top-right-radius: 5px;
+	    border-bottom-right-radius: 5px;
     }
 
     /* On small screens, set height to 'auto' for sidenav and grid */
@@ -13,6 +15,8 @@
       .sidenav {
         height: auto;
         padding: 15px;
+        border-top-right-radius: 10px;
+	      border-bottom-right-radius: 10px;
       }
       .row.content {height: auto;}
     }
@@ -59,7 +63,7 @@
         <li>Food delivery: <%= check_box("activity_types", "types", {:multiple => true}, "meal_delivery", nil) %></li>
         <li><hr></li>
         </br></br>
-        <li><%= f.text_field :search, placeholder: "Search" %> </li>
+        <li><%= f.text_field :search, placeholder: "Search", :class => "border" %> </li>
         <li><%= f.submit "Find Attractions"%></li>
         </br></br>
         <% end %>

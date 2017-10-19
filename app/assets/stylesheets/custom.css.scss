@@ -59,9 +59,9 @@ body {
 }
 
 .button {
-	background-color: #4CAF50; /* Green */
+	background-color: #ffeb8e;
 	border: none;
-	color: white;
+	color: #ffeb8e;
 	padding: 15px 32px;
 	text-align: center;
 	text-decoration: none;
@@ -70,7 +70,8 @@ body {
 }
 
 table, th, td {
-	border: 1px solid black;
+	border: 3px solid black;
+	color: black;
 }
 
 .jumbotron {
@@ -90,4 +91,8 @@ table, th, td {
 	top: 75px;
 	bottom: 0;
 	left: 5px;
+}
+
+.border{
+	border-color: blue;
 }
