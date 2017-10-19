@@ -18,13 +18,15 @@
 </tr>
 </table> 
 <p><%= link_to 'Back', root_path %> <br>
+<hr>
+<hr>
   <% if @photo == "whut.jpg" %>
     <%= image_tag @photo %>
   <% else %>
     <img src= <%= @photo %> > </img>
   <% end %>
 <hr>
-<hr>
+</div>
 <h3 align = center>Map View</h3>
  <%= render 'layouts/map' %>
 <script>
