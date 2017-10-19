@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171019071730) do
+ActiveRecord::Schema.define(version: 20171019103346) do
 
   create_table "activity_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20171019071730) do
     t.text "speciality"
     t.string "place_id"
     t.bigint "attractions_activity_types_id"
+    t.string "photo_url"
     t.index ["attractions_activity_types_id"], name: "index_attractions_on_attractions_activity_types_id"
   end
 

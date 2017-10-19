@@ -10,7 +10,11 @@ class AttractionsController < ApplicationController
       # GET  attractions/1
       # GET  attractions/1.json
       def show
-
+        if @attraction.photo_url
+          @photo = @attraction.photo_url
+        else
+          @photo = 'whut.jpg'
+        end
       end
 
       # GET  attractions/new

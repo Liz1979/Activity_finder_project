@@ -17,14 +17,17 @@
 <td>Speciality</td><td><%= @attraction.speciality %></td>
 </tr>
 </table>
-<p><%= link_to 'Back', attractions_path %> ||
-<%= link_to 'Edit', edit_attraction_path(@attraction) %></p>
-
-      <h3>Map View</h3>
-      <div style='padding: 0px 0px 0px 180px; width: 800px;'>
-      <div id="map" style='width: 800px; height: 400px;'></div>
-      </div>
-      </br>
+<p><%= link_to 'Back', root_path %> <br>
+  <% if @photo == "whut.jpg" %>
+    <%= image_tag @photo %>
+  <% else %>
+    <img src= <%= @photo %> > </img>
+  <% end %>
+<h3>Map View</h3>
+<div style='padding: 0px 0px 0px 180px; width: 800px;'>
+<div id="map" style='width: 800px; height: 400px;'></div>
+</div>
+</br>
 <script>
 handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){

@@ -20,7 +20,7 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
     {
       "lat": <%= att.latitude %>,
       "lng": <%= att.longitude %>,
-      "infowindow": "<%= att.name %>",
+      "infowindow": "<a href='/attractions/<%= att.id %>'><%= att.name %></a>",
       "picture": {
           "url": "<%= image_url(icons[att.activity_types.first.name])%>",
           "width": 20,
