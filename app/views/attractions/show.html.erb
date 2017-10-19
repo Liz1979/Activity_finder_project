@@ -19,12 +19,11 @@
 </table>
 <p><%= link_to 'Back', attractions_path %> ||
 <%= link_to 'Edit', edit_attraction_path(@attraction) %></p>
-
-      <h3>Map View</h3>
-      <div style='padding: 0px 0px 0px 180px; width: 800px;'>
-      <div id="map" style='width: 800px; height: 400px;'></div>
-      </div>
-      </br>
+<hr>
+<hr>
+<h3 align = center>Map View</h3>
+ <%= render 'layouts/map' %>
+ 
 <script>
 handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){

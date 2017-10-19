@@ -1,36 +1,37 @@
-      <h3 align = center>Map View</h3>
-      <div style='padding: 0px 0px 0px 180px; width: 800px;'>
-      <div id="map" style='width: 800px; height: 400px;'></div>
-      </div>
-      </br>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {
+          height:100%;
+          padding: 15px;
+    
+    }
 
-<script>
-handler = Gmaps.build('Google');
-handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-  var circles = handler.addCircles(
-  [{ lat: <%= location.latitude %>, lng: <%= location.longitude %>, radius: 5*1600 }],
-  { strokeColor: '#FF0000', fillColor: '#888888'}
-);
-  markers = handler.addMarkers([
-    {
-      "lat": <%= location.latitude %>,
-      "lng": <%= location.longitude %>
-    },
-    <% location.attractions.each do |att| %>
-    {
-      "lat": <%= att.latitude %>,
-      "lng": <%= att.longitude %>,
-      "infowindow": "<%= att.name %>",
-      "picture": {
-          "url": "<%= image_url(icons[att.activity_types.first.name])%>",
-          "width": 20,
-          "height": 34,
-        },
-    },
-    <% end %>
-  ]);
-  handler.bounds.extendWith(markers);
-  handler.bounds.extendWith(circles);
-  handler.fitMapToBounds();
-});
-</script>
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #fff;
+      height: 20%;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;}
+    }
+  </style>
+  <div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+    </br></br></br></br>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><div class = box>
+          <%= render 'layouts/map_key', location: @location %>
+        </div>
+      </div>
+</br>
+<div style='padding: 0px 0px 0px 340px; width: 800px;'>
+<div id="map" style='width: 800px; height: 400px;'></div>
+</div>
+

@@ -1,7 +1,5 @@
 <% provide(:title, "Show a location") %>
-
-    <div class="col-sm-9">
-      <h2>Locations</h2>
+      <h2 align = center>Location</h2>
       </br>
       <table align = center>
       <tr>
@@ -20,14 +18,49 @@
       <td>Address:</td><td><%= @location.address %></td>
       </tr>
       </table>
+      <div class = form>
       <p></p>
       <p><%= link_to 'Back', locations_path %> ||
       <%= link_to 'Edit', edit_location_path(@location) %></p>
-
+      <hr>
+      <hr>
       <h3>Nearby Attractions:</h3></br>
       <% @location.attractions.each do |att| %>
-      <p><% att.name %> - <% att.activity_types.each do |typ| %> <%= typ.name %> <% end %></br></p>
+      <p><% att.name %> - <% att.activity_types.each do |typ| %> <%= typ.name %> 
+      <% end %></br></p>
       <% end %>
-      </br></br>
+      <hr>
+      <h3>Map View</h3>
       </div>
-     <%= render 'layouts/map', location: @location, icons: @icons %>
+      <%= render 'layouts/map' %>
+<script>
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  var circles = handler.addCircles(
+  [{ lat: <%= @location.latitude %>, lng: <%= @location.longitude %>, radius: 5*1600 }],
+  { strokeColor: '#FF0000', fillColor: '#888888'}
+);
+  markers = handler.addMarkers([
+    {
+      "lat": <%= @location.latitude %>,
+      "lng": <%= @location.longitude %>
+    },
+    <% @location.attractions.each do |att| %>
+    {
+      "lat": <%= att.latitude %>,
+      "lng": <%= att.longitude %>,
+      "infowindow": "<%= att.name %>",
+      "picture": {
+          "url": "<%= image_url(@icons[att.activity_types.first.name])%>",
+          "width": 20,
+          "height": 34,
+        },
+    },
+    <% end %>
+  ]);
+  handler.bounds.extendWith(markers);
+  handler.bounds.extendWith(circles);
+  handler.fitMapToBounds();
+});
+</script>
+

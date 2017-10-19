@@ -1,36 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-#tooplate_wrapper {
-	border: 2px border-style #000;
-	width: 960px;
-	padding: 0 9px;
-	margin: 0 auto;
-  //background-image: url("tooplate_header.jpg") !important;
-}
-
-#tooplate_header {
-	height: 100px;
-	clear: both;
-	padding: 20px 0;
-	text-align: center;
-	background: #d7e8f9;
-}
-
-#tooplate_main {
-	clear: both;
-	width: 880px;
-	padding: 10px 40px 0;
-	background: url(images/tooplate_main.jpg) no-repeat top
-}
-
-#slider_wrapper {
-	clear: both;
-	width: 880px;
-	height: 320px;
-	background: url(images/tooplate_slider.png) bottom center no-repeat
-}
-
 #tooplate_footer {
 	clear: both;
 	padding: 20px 0;
@@ -41,7 +11,8 @@
 #tooplate_footer a { color: #000 }
 
 .form{
-  text-align: center;
+	text-align: center;
+	background-position: center;
 }
 
 .pagination { 
@@ -93,4 +64,8 @@
 	text-decoration: none;
 	display: inline-block;
 	font-size: 16px;
+}
+
+table, th, td {
+	border: 1px solid black;
 }
