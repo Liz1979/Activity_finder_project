@@ -45,7 +45,7 @@
           <%= link_to 'Edit', edit_user_path(@user) %> |
           <%= link_to 'Back', users_path %>
       <hr>
-      <%= render 'layouts/map_key', location: @location %>
+      <%= render 'layouts/map_key' %>
       <hr>
       <h3> Holidays booked</h3>
       </div>
@@ -83,4 +83,3 @@ $("[id^=activity_types_types_]").change(function(){
     console.log($('#activity_types_mirror').val())
 });
 </script>
-
