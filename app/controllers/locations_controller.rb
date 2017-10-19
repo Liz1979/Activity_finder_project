@@ -86,7 +86,7 @@ class LocationsController < ApplicationController
         def find_nearby_api(location, radius_in_miles, search = search_types)
           @client ||= GooglePlaces::Client.new(Rails.application.secrets.api_key)
           new_attractions = @client.spots(location.latitude,location.longitude, :radius => radius_in_miles * 1600, :types => search)
-          # open("#{location.address.parameterize}-#{Time.now.to_i}.txt", "w"){|f| f.write(new_attractions)          }
+          open("#{location.address.parameterize}-#{Time.now.to_i}.txt", "w"){|f| f.write(new_attractions)          }
           new_attractions.each do |att|
             unless Attraction.exists?(place_id: att.id)
               new_params = {name: att.name, longitude: att.lng, latitude: att.lat, place_id: att.id}

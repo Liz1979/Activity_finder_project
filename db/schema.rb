@@ -33,9 +33,7 @@ ActiveRecord::Schema.define(version: 20171017134252) do
     t.float "latitude", limit: 24
     t.text "speciality"
     t.string "place_id"
-    t.bigint "activiy_types_id"
     t.bigint "attractions_activity_types_id"
-    t.index ["activiy_types_id"], name: "index_attractions_on_activiy_types_id"
     t.index ["attractions_activity_types_id"], name: "index_attractions_on_attractions_activity_types_id"
   end
 

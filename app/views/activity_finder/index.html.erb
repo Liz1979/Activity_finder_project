@@ -35,8 +35,8 @@
       <h3>The holiday planner</h3>
       <p>To use the holiday planner you can either:</p>
       <p>1. Put an address in the search bar, pick the activities you would like to search for, then press "create location".</p>
-      <p>or</p> 
-      <p>2. From a hotel booking, pick the activities yoiu would like to search on, press "plan your trip"</p>  
+      <p>or</p>
+      <p>2. From a hotel booking, pick the activities yoiu would like to search on, press "plan your trip"</p>
       <hr>
       <%= render 'layouts/map_key', location: @location %>
       <hr>
@@ -51,13 +51,9 @@
       </br>
       <p>## For group bookings, please contact our sales team prior to booking to discuss your requirements. The hotel will only accept group bookings on…</p>
        <%= form_tag(locations_path) %>
-        <%# @types.each do |typ| %>
-        <%#= hidden_field_tag "activity_types[#{typ}]", %>
-        <%# end %>
         <%= hidden_field_tag "activity_types_mirror" %>
         <%= hidden_field_tag "location[search]", "Calle del Esperanto, 9, 03503 Benidorm, Alicante, Spain" %>
        <p align = right><%= submit_tag "Plan Your Trip"%></p>
-       <%# end %>
       </div>
     </div>
   </div>
