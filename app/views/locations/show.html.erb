@@ -24,12 +24,6 @@
       <%= link_to 'Edit', edit_location_path(@location) %></p>
       <hr>
       <hr>
-      <h3>Nearby Attractions:</h3></br>
-      <% @location.attractions.each do |att| %>
-      <p><% att.name %> - <% att.activity_types.each do |typ| %> <%= typ.name %>
-      <% end %></br></p>
-      <% end %>
-      <hr>
       <h3>Map View</h3>
       </div>
       <%= render 'layouts/map' %>
