@@ -37,24 +37,36 @@
       <p>To use the holiday planner you can either:</p>
       <p>1. Put an address in the search bar, pick the activities you would like to search for, then press "create location".</p>
       <p>or</p>
-      <p>2. From a hotel booking, pick the activities yoiu would like to search on, press "plan your trip"</p>
+      <p>2. From a hotel booking, pick the activities yoiu would like to search on, press "plan your trip"</p> 
       <hr>
       <%= render 'layouts/map_key', location: @location %>
       <hr>
-      <h3> Holidays booked</h3>
+      <h3>Feature Holiday</h3>
       </div>
       <div class="col-sm-8 text-left">
       <div class="col-sm-12 sidenav">
-      <h3>Poseidon Resort</h3>
-      <%= image_tag "poseidon-resort.jpeg", :class => "image" %>
-      <p>Overview</p>
-      <p>Poseidon Resort is located just a 5-minute walk from the Levante beach, the old town and the centre of Benidorm. The hotel boasts 2 outdoor swimming pools. It is only a short walk to the nearest bars, shops and restaurants.</P>
+      <h3>Fuertesol</h3>
+      <%= image_tag "fuertesol.jpeg", :class => "image" %>
+      <p></p>
+      <h5>Overview</h5>
+      <p>This bungalow complex is situated in the centre of the charming island of Fuerteventura in the quiet surroundings of Caleta de Fuste and is popular with both couples and families. Alongside peace and relaxation, guests are also able to enjoy a rich selection of sports, restaurants, shopping centres, pathways and bars. There is also a stop for the public transport to be found just 15 minutes from the unique marina.</p>
       </br>
-      <p>## For group bookings, please contact our sales team prior to booking to discuss your requirements. The hotel will only accept group bookings on…</p>
+      <h6>How far is the nearest beach?</h6>
+      <p>This hotel is located 550m from the beach</p>
+      </br>
+      <h6>Distance from Airport</h6>
+      <p>Fuerteventura Airport is within 8 km of the hotel.</p>
+      </br>
+      <h6>Rooms</h6>
+      <p>The tastefully designed apartments include a combined living room/ bedroom, a bathroom and a separate bedroom. In addition, satellite/cable TV and a kitchen with a fridge also feature within the apartments. Guests will also find a lounge and a balcony or terrace in the apartments. A hire safe rounds up the offerings. Hired at reception, Safe Box, Wi-Fi, Sun Umbrellas, TV, Fans, Coffee Express, Iron, Hair Dryers, Laundry, Early Arrival, Late Check Out, etc..</p>
+      </br>
+      <h6>Food & Drink</h6>
+      <p>There is a Quiet Bar-Restaurant where you can enjoy all kinds of refreshing drinks and tasty snacks. Breakfast is a selection …</p>
        <%= form_tag(locations_path) %>
         <%= hidden_field_tag "activity_types_mirror" %>
         <%= hidden_field_tag "location[search]", "Calle del Esperanto, 9, 03503 Benidorm, Alicante, Spain" %>
-       <p align = right><%= submit_tag "Plan Your Trip"%></p>
+        <p align = right><button>Book holiday</button></p>
+       <p align = right><%= submit_tag "See whats nearby"%></p>
       </div>
     </div>
   </div>
