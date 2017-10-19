@@ -10,12 +10,15 @@
 
 #tooplate_footer a { color: #000 }
 
+body {
+	background-image: image_url('background.jpg');
+}
 .form{
 	text-align: center;
 	background-position: center;
 }
 
-.pagination { 
+.pagination {
   .previous_page { background:#ddd; color:black }
   .previous_page.disabled { background: #ddd; color: #777 }
   .current {border: 3px solid #ddd; background: yellow }
@@ -40,7 +43,7 @@
 
 .image {
 	border-radius: 8px;
-	width: 50%;	
+	width: 50%;
 }
 
 .box{
