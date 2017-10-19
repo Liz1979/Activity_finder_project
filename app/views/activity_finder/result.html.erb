@@ -1,12 +1,37 @@
+ <% provide(:title, "Results") %>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 1500px}
 
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #fff;
+      height: 40%;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;}
+    }
+  </style>
+  <div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+    </br></br></br></br>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><div class = box>
+          <%= render 'layouts/map_key', location: @location %>
+        </div>
+      </div>
+</br>
 <h3 align = center>Map View</h3>
 <div style='padding: 0px 0px 0px 340px; width: 800px;'>
 <div id="map" style='width: 800px; height: 400px;'></div>
 </div>
-<div class = box>
-<%= render 'layouts/map_key', location: @location %>
-</div>
-</br>
 
 <script>
   handler = Gmaps.build('Google');
