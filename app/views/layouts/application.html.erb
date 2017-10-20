@@ -9,11 +9,8 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-<div class="container">
+<div>
  <%= image_tag "logo.png", :class => "logo" %>
-  <div class="jumbotron">
-    <h1>Holiday Planner</h1>
-  </div>
 </div>
  <%= render 'layouts/navbar', layout: @layout %>
     <%= yield %>
