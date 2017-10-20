@@ -1,5 +1,7 @@
  <% provide(:title, "Results") %>
- <h2 align = center>Map View of <%= @location.name %></h2>
+ <div class = "headings">
+ <h2 align = center><b>Map View of <%= @location.name %></b></h2>
+ </div>
  <div class="text-div">
  <h3 align = center>Displaying:</br>  <% @displayed_types.each do |da|%><%= @pretty_names[da].to_s.pluralize %></br> <% end %></h3>
 </div>

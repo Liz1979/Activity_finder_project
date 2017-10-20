@@ -25,11 +25,13 @@
   <div class="container-fluid">
   <div class="row content">
     <div class="col-sm-3 sidenav">
-      <h3>Choose which attractions you would like to see</h3>
+    <div class = "headings">
+      <h3><b>Choose which attractions you would like to see</b></h3>
+      </div>
       <ul class="nav nav-pills nav-stacked">
         <li class="active"><%= form_for location do |f| %></li>
         <% sidebar_names.each do |category, types| %>
-          <li><h5><%= category %></h5></li>
+          <li><h5><b><%= category %></b></h5></li>
             <% types.each do |name, type| %>
               <li><%= name %>: <%= check_box("activity_types", "types", {:multiple => true}, type, nil) %></li>
             <% end%>

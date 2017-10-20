@@ -29,7 +29,9 @@
     <div class="col-sm-8 text-left">
       <div class="text-div">
         </br>
-        <h3>The holiday planner</h3>
+        <div class = "headings">
+        <h3><b>The holiday planner</b></h3>
+        </div>
         <p>To use the holiday planner you can either:</p>
         <p>1. Put an address in the search bar, pick the activities you would like to search for, then press "create location".</p>
         <p>or</p>
@@ -39,26 +41,30 @@
       <hr>
       <%= render 'layouts/map_key', location: @location %>
       <hr>
-      <h3>Feature Holiday</h3>
+      <div class = "headings">
+      <h3><b>Feature Holiday</b></h3>
+      </div>
     </div>
       <div class="col-sm-8 text-left">
       <div class="col-sm-12 sidenav">
-      <h3>Fuertesol</h3>
+      <div class = "headings">
+      <h3><b>Fuertesol</b></h3>
       <%= image_tag "fuertesol.jpeg", :class => "image" %>
       <p></p>
-      <h5>Overview</h5>
+      <h4><b>Overview</b></h4>
+      </div>
       <p>This bungalow complex is situated in the centre of the charming island of Fuerteventura in the quiet surroundings of Caleta de Fuste and is popular with both couples and families. Alongside peace and relaxation, guests are also able to enjoy a rich selection of sports, restaurants, shopping centres, pathways and bars. There is also a stop for the public transport to be found just 15 minutes from the unique marina.</p>
       </br>
-      <h6>How far is the nearest beach?</h6>
+      <h6><b>How far is the nearest beach?</b></h6>
       <p>This hotel is located 550m from the beach</p>
       </br>
-      <h6>Distance from Airport</h6>
+      <h6><b>Distance from Airport</b></h6>
       <p>Fuerteventura Airport is within 8 km of the hotel.</p>
       </br>
-      <h6>Rooms</h6>
+      <h6><b>Rooms</b></h6>
       <p>The tastefully designed apartments include a combined living room/ bedroom, a bathroom and a separate bedroom. In addition, satellite/cable TV and a kitchen with a fridge also feature within the apartments. Guests will also find a lounge and a balcony or terrace in the apartments. A hire safe rounds up the offerings. Hired at reception, Safe Box, Wi-Fi, Sun Umbrellas, TV, Fans, Coffee Express, Iron, Hair Dryers, Laundry, Early Arrival, Late Check Out, etc..</p>
       </br>
-      <h6>Food & Drink</h6>
+      <h6><b>Food & Drink</b></h6>
       <p>There is a Quiet Bar-Restaurant where you can enjoy all kinds of refreshing drinks and tasty snacks. Breakfast is a selection …</p>
        <%= form_tag(locations_path) %>
         <%= hidden_field_tag "activity_types_mirror" %>

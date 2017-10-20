@@ -1,5 +1,7 @@
 <% provide(:title, "Show a location") %>
-      <h2 align = center><%= @location.name %></h2>
+<div class = "headings">
+      <h2 align = center><b><%= @location.name %></b></h2>
+      </div>
       </br>
       <table class = "loc-table" align = center >
       <tr>
@@ -19,8 +21,9 @@
       <p></p>
       <p><%= link_to 'Back', locations_path, class: "button" %></p>
       <hr>
-      <hr>
-      <h3>Map View</h3>
+      <div class = "headings">
+      <h3><b>Map View</b></h3>
+      </div>
       </div>
       <%= render 'layouts/map' %>
 <script>

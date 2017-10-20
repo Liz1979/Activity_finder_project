@@ -1,7 +1,9 @@
 <% provide(:title, "Login") %>
 <div class = form>
    <div class="text-div">
-      <h1>Login</h1>
+    <div class = "headings">
+      <h1><b>Login</b></h1>
+      </div>
       <%= form_tag '/login' do %>
 
       <p>UserName:</br> <%= text_field_tag :username %></br></p>
