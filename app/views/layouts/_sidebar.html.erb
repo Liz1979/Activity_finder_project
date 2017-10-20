@@ -8,6 +8,7 @@
       height: 80%;
       border-top-right-radius: 5px;
 	    border-bottom-right-radius: 5px;
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     }
 
     /* On small screens, set height to 'auto' for sidenav and grid */
@@ -64,7 +65,8 @@
         <li><hr></li>
         </br></br>
         <li><%= f.text_field :search, placeholder: "Search", :class => "border" %> </li>
-        <li><%= f.submit "Find Attractions"%></li>
+        </br>
+        <li><%= f.submit "Find Attractions", class: "button"%></li>
         </br></br>
         <% end %>
       </ul><br>
