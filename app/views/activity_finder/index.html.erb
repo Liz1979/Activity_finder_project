@@ -4,11 +4,6 @@
     .row.content {height: 450px}
 
     /* Set gray background color and 100% height */
-    .sidenav {
-      padding-top: 20px;
-      background-color: #f1f1f1;
-      height: 100%;
-    }
 
     /* Set black background color, white text and some padding */
     footer {
@@ -32,17 +27,20 @@
     <%= render 'layouts/sidebar', location: @location %>
 
     <div class="col-sm-8 text-left">
+      <div class="text-div">
+        </br>
+        <h3>The holiday planner</h3>
+        <p>To use the holiday planner you can either:</p>
+        <p>1. Put an address in the search bar, pick the activities you would like to search for, then press "create location".</p>
+        <p>or</p>
+        <p>2. From a hotel booking, pick the activities yoiu would like to search on, press "plan your trip"</p>
       </br>
-      <h3>The holiday planner</h3>
-      <p>To use the holiday planner you can either:</p>
-      <p>1. Put an address in the search bar, pick the activities you would like to search for, then press "create location".</p>
-      <p>or</p>
-      <p>2. From a hotel booking, pick the activities yoiu would like to search on, press "plan your trip"</p> 
+      </div>
       <hr>
       <%= render 'layouts/map_key', location: @location %>
       <hr>
       <h3>Feature Holiday</h3>
-      </div>
+    </div>
       <div class="col-sm-8 text-left">
       <div class="col-sm-12 sidenav">
       <h3>Fuertesol</h3>

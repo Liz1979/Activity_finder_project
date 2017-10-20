@@ -4,6 +4,7 @@ class Location < ApplicationRecord
   validates :search, presence: true
   geocoded_by :search do |obj,results|
     if geo = results.first
+      obj.name = geo.address.split(',').first.upcase
       obj.city    = geo.city.upcase
       obj.country = geo.country_code.upcase
       obj.latitude = geo.latitude

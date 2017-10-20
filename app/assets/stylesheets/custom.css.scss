@@ -51,7 +51,7 @@ body {
 	border-radius: 5px;
 	width: 300px;
 	height: 300px;
-	padding: 10px 10px 10px 10px;
+	//padding: 10px 10px 10px 10px;
 }
 .glyphicon {
 	padding-left: 10px;
@@ -69,18 +69,13 @@ body {
 	font-size: 16px;
 }
 
-table, th, td {
-	border: 3px solid black;
-	color: black;
-}
-
 .jumbotron {
   padding-top: 30px;
   padding-bottom: 30px;
   margin-bottom: 30px;
   color: inherit;
 	background-color: #ffeb8e;
-  position: relative;	
+  position: relative;
 }
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
 	background-color: #ffeb8e;
@@ -95,4 +90,25 @@ table, th, td {
 
 .border{
 	border-color: blue;
+}
+.map_key{
+	background-color: rgba(255,255,255,0.5);
+	border-radius: 10px;
+	padding-left: 20px;
+}
+.text-div{
+	background-color: rgba(255,255,255,0.5);
+	border-radius: 10px;
+	padding-left: 20px;
+}
+.sidenav {
+	padding-top: 20px;
+	height: 100%;
+}
+.loc-table{
+	background-color: rgba(255,255,255,0.5);
+	th, td {
+		border: 3px solid black;
+		color: black;
+	}
 }
