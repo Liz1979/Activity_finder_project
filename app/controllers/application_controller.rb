@@ -9,7 +9,46 @@ class ApplicationController < ActionController::Base
   def authorize
     redirect_to '/login' unless current_user
   end
-
+  private
+  def sidebar_names
+    {
+      "Family Friendly":{
+        "Amusement Park": "amusement_park",
+        "Aquarium": "aquarium",
+        "Art Gallery": "art_gallery",
+        "Bowling Alley": "bowling_alley",
+        "Cinema": "cinema",
+        "Zoo": "zoo",
+      },
+      "Day Attractions":{
+        "Museum": "museum",
+        "Shopping Centre": "shopping_mall",
+        "Stadium": "stadium",
+        "Book Shop": "book_store",
+        "Beauty Salon": "beauty_salon",
+        "Spa": "spa",
+        "Town Hall": "city_hall",
+        "Embassy": "embassy",
+      },
+      "Places of Worship":{
+        "Church": "church",
+        "Hindu Temple": "hindu_temple",
+        "Mosque": "mosque",
+        "Synagogue": "synagogue",
+        "Other": "place_of_worship",
+      },
+      "Night Life":{
+        "Bar": "bar",
+        "Casino": "casino",
+        "Night Club": "night_club",
+      },
+      "Food":{
+        "Restaurant": "restaurant",
+        "Takeaway": "meal_takeaway",
+        "Delivery": "meal_delivery",
+      },
+    }
+  end
   def icon_urls
     urls = Hash.new("markers/blue_MarkerZ.png")
     icons.each{|k,v|
