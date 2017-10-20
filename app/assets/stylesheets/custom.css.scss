@@ -75,9 +75,9 @@ body {
   margin-bottom: 30px;
   color: inherit;
 	background-color: #ffeb8e;
-  position: relative;
+	position: relative;
 }
-.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+.navbar-default{
 	background-color: #ffeb8e;
 }
 
@@ -111,4 +111,8 @@ body {
 		border: 3px solid black;
 		color: black;
 	}
+}
+.container {
+	width: 40%;
+	height: 10%
 }
