@@ -9,6 +9,14 @@ class ApplicationController < ActionController::Base
   def authorize
     redirect_to '/login' unless current_user
   end
+
+  def icon_urls
+    urls = Hash.new("markers/blue_MarkerZ.png")
+    icons.each{|k,v|
+      urls[k] = "markers/#{v}.png"
+    }
+    urls
+  end
   def icons
     {
       'amusement_park' => "purple_MarkerP",
@@ -37,12 +45,5 @@ class ApplicationController < ActionController::Base
       'synagogue'=> "yellow_MarkerS",
       'zoo' => "purple_MarkerZ",
     }
-  end
-  def icon_urls
-    urls = Hash.new("markers/blue_MarkerZ.png")
-    icons.each{|k,v|
-      urls[k] = "markers/#{v}.png"
-    }
-    urls
   end
 end
