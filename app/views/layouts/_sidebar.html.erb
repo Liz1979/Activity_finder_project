@@ -5,7 +5,7 @@
     /* Set gray background color and 100% height */
     .sidenav {
       background-color: #d7e8f9;
-      height: 80%;
+      height: 100%;
       border-top-right-radius: 5px;
 	    border-bottom-right-radius: 5px;
       box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -25,10 +25,10 @@
   <div class="container-fluid">
   <div class="row content">
     <div class="col-sm-3 sidenav">
-      <h4>Choose which attractions you would like to see</h4>
+      <h3>Choose which attractions you would like to see</h3>
       <ul class="nav nav-pills nav-stacked">
         <li class="active"><%= form_for location do |f| %></li>
-        <li><h6>Family Friendly</h6></li>
+        <li><h4>Family Friendly</h4></li>
         <li>Amusement Park: <%= check_box("activity_types", "types", {:multiple => true}, "amusement_park", nil) %></li>
         <li>Aquarium: <%= check_box("activity_types", "types", {:multiple => true}, "aquarium", nil) %></li>
         <li>Art Gallery: <%= check_box("activity_types", "types", {:multiple => true}, "art_gallery", nil) %></li>
@@ -36,7 +36,7 @@
         <li>Cinima: <%= check_box("activity_types", "types", {:multiple => true}, "movie_theater", nil) %></li>
         <li>Zoo: <%= check_box("activity_types", "types", {:multiple => true}, "zoo", nil) %></li>
         <li><hr></li>
-        <li><h6>Day attractions</h6></li>
+        <li><h4>Day attractions</h4></li>
         <li>Museum : <%= check_box("activity_types", "types", {:multiple => true}, "museum", nil) %></li>
         <li>Shopping Center: <%= check_box("activity_types", "types", {:multiple => true}, "shopping_mall", nil) %></li>
         <li>Stadium: <%= check_box("activity_types", "types", {:multiple => true}, "stadium", nil) %></li>
@@ -46,19 +46,19 @@
         <li>City Hall : <%= check_box("activity_types", "types", {:multiple => true}, "city_hall", nil) %></li>
         <li>Embassy : <%= check_box("activity_types", "types", {:multiple => true}, "embassy", nil) %></li>
         <li><hr></li>
-        <li><h6>Places of Worship</h6></li>
+        <li><h4>Places of Worship</h4></li>
         <li>Church : <%= check_box("activity_types", "types", {:multiple => true}, "church", nil) %></li>
         <li>Hindu temple : <%= check_box("activity_types", "types", {:multiple => true}, "hindu_temple", nil) %></li>
         <li>Mosque : <%= check_box("activity_types", "types", {:multiple => true}, "mosque", nil) %></li>
         <li>Synagogue : <%= check_box("activity_types", "types", {:multiple => true}, "synagogue", nil) %></li>
         <li>Other : <%= check_box("activity_types", "types", {:multiple => true}, "place_of_worship", nil) %></li>
         <li><hr></li>
-        <li><h6>Night Life</h6></li>
+        <li><h4>Night Life</h6></li>
         <li>Bar: <%= check_box("activity_types", "types", {:multiple => true}, "bar", nil) %></li>
         <li>Casino: <%= check_box("activity_types", "types", {:multiple => true}, "casino", nil) %></li>
         <li>Night Club: <%= check_box("activity_types", "types", {:multiple => true}, "night_club", nil) %></li>
         <li><hr></li>
-        <li><h6>Food</h6></li>
+        <li><h4>Food</h4></li>
         <li>Restaurant: <%= check_box("activity_types", "types", {:multiple => true}, "restaurant", nil) %></li>
         <li>Food takeaways: <%= check_box("activity_types", "types", {:multiple => true}, "meal_takeaway", nil) %></li>
         <li>Food delivery: <%= check_box("activity_types", "types", {:multiple => true}, "meal_delivery", nil) %></li>
