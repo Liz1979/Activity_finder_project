@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @sidebar_names = sidebar_names
     @location = Location.new
   end
 

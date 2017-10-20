@@ -28,41 +28,13 @@
       <h3>Choose which attractions you would like to see</h3>
       <ul class="nav nav-pills nav-stacked">
         <li class="active"><%= form_for location do |f| %></li>
-        <li><h4>Family Friendly</h4></li>
-        <li>Amusement Park: <%= check_box("activity_types", "types", {:multiple => true}, "amusement_park", nil) %></li>
-        <li>Aquarium: <%= check_box("activity_types", "types", {:multiple => true}, "aquarium", nil) %></li>
-        <li>Art Gallery: <%= check_box("activity_types", "types", {:multiple => true}, "art_gallery", nil) %></li>
-        <li>Bowling Alley <%= check_box("activity_types", "types", {:multiple => true}, "bowling_alley", nil) %></li>
-        <li>Cinima: <%= check_box("activity_types", "types", {:multiple => true}, "movie_theater", nil) %></li>
-        <li>Zoo: <%= check_box("activity_types", "types", {:multiple => true}, "zoo", nil) %></li>
-        <li><hr></li>
-        <li><h4>Day attractions</h4></li>
-        <li>Museum : <%= check_box("activity_types", "types", {:multiple => true}, "museum", nil) %></li>
-        <li>Shopping Center: <%= check_box("activity_types", "types", {:multiple => true}, "shopping_mall", nil) %></li>
-        <li>Stadium: <%= check_box("activity_types", "types", {:multiple => true}, "stadium", nil) %></li>
-        <li>Book Shops: <%= check_box("activity_types", "types", {:multiple => true}, "book_store", nil) %></li>
-        <li>Beauty Salon: <%= check_box("activity_types", "types", {:multiple => true}, "beauty_salon", nil) %></li>
-        <li>Spa : <%= check_box("activity_types", "types", {:multiple => true}, "spa", nil) %></li>
-        <li>City Hall : <%= check_box("activity_types", "types", {:multiple => true}, "city_hall", nil) %></li>
-        <li>Embassy : <%= check_box("activity_types", "types", {:multiple => true}, "embassy", nil) %></li>
-        <li><hr></li>
-        <li><h4>Places of Worship</h4></li>
-        <li>Church : <%= check_box("activity_types", "types", {:multiple => true}, "church", nil) %></li>
-        <li>Hindu temple : <%= check_box("activity_types", "types", {:multiple => true}, "hindu_temple", nil) %></li>
-        <li>Mosque : <%= check_box("activity_types", "types", {:multiple => true}, "mosque", nil) %></li>
-        <li>Synagogue : <%= check_box("activity_types", "types", {:multiple => true}, "synagogue", nil) %></li>
-        <li>Other : <%= check_box("activity_types", "types", {:multiple => true}, "place_of_worship", nil) %></li>
-        <li><hr></li>
-        <li><h4>Night Life</h6></li>
-        <li>Bar: <%= check_box("activity_types", "types", {:multiple => true}, "bar", nil) %></li>
-        <li>Casino: <%= check_box("activity_types", "types", {:multiple => true}, "casino", nil) %></li>
-        <li>Night Club: <%= check_box("activity_types", "types", {:multiple => true}, "night_club", nil) %></li>
-        <li><hr></li>
-        <li><h4>Food</h4></li>
-        <li>Restaurant: <%= check_box("activity_types", "types", {:multiple => true}, "restaurant", nil) %></li>
-        <li>Food takeaways: <%= check_box("activity_types", "types", {:multiple => true}, "meal_takeaway", nil) %></li>
-        <li>Food delivery: <%= check_box("activity_types", "types", {:multiple => true}, "meal_delivery", nil) %></li>
-        <li><hr></li>
+        <% sidebar_names.each do |category, types| %>
+          <li><h5><%= category %></h5></li>
+            <% types.each do |name, type| %>
+              <li><%= name %>: <%= check_box("activity_types", "types", {:multiple => true}, type, nil) %></li>
+            <% end%>
+            <hr>
+        <% end %>
         </br></br>
         <li><%= f.text_field :search, placeholder: "Search", :class => "border" %> </li>
         </br>
