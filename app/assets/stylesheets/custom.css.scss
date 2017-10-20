@@ -80,9 +80,9 @@ table, th, td {
   margin-bottom: 30px;
   color: inherit;
 	background-color: #ffeb8e;
-  position: relative;	
+	position: relative;	
 }
-.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+.navbar-default{
 	background-color: #ffeb8e;
 }
 
@@ -95,4 +95,9 @@ table, th, td {
 
 .border{
 	border-color: blue;
+}
+
+.container {
+	width: 40%;
+	height: 10%
 }
