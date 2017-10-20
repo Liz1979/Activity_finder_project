@@ -63,8 +63,8 @@
        <%= form_tag(locations_path) %>
         <%= hidden_field_tag "activity_types_mirror" %>
         <%= hidden_field_tag "location[search]", "Av. Virgen de la Peña, 2, 35610 Castillo Caleta de Fuste, Las Palmas, Spain" %>
-        <p align = right><button>Book holiday</button></p>
-       <p align = right><%= submit_tag "See whats nearby"%></p>
+        <p align = right><button class = "button">Book holiday</button></p>
+       <p align = right><%= submit_tag "See whats nearby", class: "button" %></p>
       </div>
     </div>
   </div>

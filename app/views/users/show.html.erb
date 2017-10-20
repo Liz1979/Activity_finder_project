@@ -31,6 +31,7 @@
     <%= render 'layouts/sidebar', location: @location %>
 
     <div class="col-sm-8 text-left">
+     <div class="text-div">
       </br>
       <h3>User</h3>
       <p id="notice"><%= notice %></p>
@@ -42,8 +43,9 @@
       <strong>Name:</strong>
       <%= @user.name %>
       </p>
-          <%= link_to 'Edit', edit_user_path(@user) %> |
-          <%= link_to 'Back', users_path %>
+          <%= link_to 'Edit', edit_user_path(@user), class: "buttonsm" %></p>
+      </br>
+      </div>
       <hr>
       <%= render 'layouts/map_key' %>
       <hr>
@@ -64,7 +66,7 @@
         <%# end %>
         <%= hidden_field_tag "activity_types_mirror" %>
         <%= hidden_field_tag "location[search]", "Calle del Esperanto, 9, 03503 Benidorm, Alicante, Spain" %>
-       <p align = right><%= submit_tag "Plan Your Trip"%></p>
+       <p align = right><%= submit_tag "Plan Your Trip", class: "button"%></p>
        <%# end %>
       </div>
     </div>
