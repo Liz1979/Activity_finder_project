@@ -5,7 +5,7 @@
  <div class="text-div">
  <h3 align = center>Displaying:</br>  <% @displayed_types.each do |da|%><%= @pretty_names[da].to_s.pluralize %></br> <% end %></h3>
 </div>
-
+<div align= center ><%= link_to 'Back', root_path, class: "button" %></div>
   <%= render 'layouts/map' %>
 
 <script>
